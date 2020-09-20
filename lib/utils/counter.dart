@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Counter with ChangeNotifier {
   int _count;
-  Counter(this._count);
+  bool _like;
+  Counter(this._count, this._like);
 
   int getCount() {
     return _count;
@@ -10,6 +11,15 @@ class Counter with ChangeNotifier {
 
   void setCount(count) {
     _count = count;
+  }
+
+  bool getLike() {
+    return _like;
+  }
+
+  void setLike() {
+    _like = !_like;
+    notifyListeners();
   }
 
   void increase() {
